@@ -39,8 +39,8 @@ function Login() {
   return (
     <div className="container">
       <h1 className="text-dark">URL Shortener</h1>
-      <div className="col">
-        <div className="row">
+      <div className="row">
+        <div className="col-lg-8 col-md-6 col-sm-10 ">
           <form onSubmit={formik.handleSubmit}>
             <div class="mb-3">
               <label for="username" class="form-label">
@@ -85,8 +85,8 @@ function Login() {
           </form>
            <div>
             <h2>For Testing:</h2>
-            <h3>Username: pavi</h3>
-            <h3>Password: 12344</h3>
+            <h3>Username: Kumar</h3>
+            <h3>Password: 1234</h3>
           </div>
         </div>
       </div>
