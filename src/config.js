@@ -1,3 +1,3 @@
 export const config = {
-    api : 'https://pvly.herokuapp.com'
+    api : 'https://url-shortner-kiru-app.herokuapp.com'
 }
