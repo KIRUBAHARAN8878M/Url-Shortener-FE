@@ -22,9 +22,19 @@ function ResetPasswordPage() {
   });
   return (
     <>
-      <form onSubmit={formik.handleSubmit}>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-6 col-md-6 col-sm-8 mx-auto pt-5">
+       <div className="card bg-transparent p-3">
+       <div className="  text-center ">
+                    <h4 className="p-2 bg-warning border-light text-light rounded">
+                      Welcome To Reset password Page!
+                    </h4>
+
+                  </div>
+       <form onSubmit={formik.handleSubmit}>
+        <div class="mb-3 pt-5">
+          <label for="exampleInputEmail1" class="form-label fw-bold fs-4">
             Enter Random String
           </label>
           <input
@@ -37,7 +47,7 @@ function ResetPasswordPage() {
           />
         </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+          <label for="exampleInputEmail1" class="form-label fw-bold fs-4">
             Enter Email{" "}
           </label>
           <input
@@ -50,7 +60,7 @@ function ResetPasswordPage() {
           />
         </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+          <label for="exampleInputEmail1" class="form-label fw-bold fs-4">
             Enter New Password
           </label>
           <input
@@ -62,10 +72,16 @@ function ResetPasswordPage() {
             value={formik.values.password}
           />
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-dark ">
           Submit
         </button>
       </form>
+       </div>
+       
+        </div>
+         </div>   
+        </div>
+     
     </>
   );
 }

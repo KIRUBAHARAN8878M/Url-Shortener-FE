@@ -1,89 +1,103 @@
 import React from "react";
 import { useFormik } from "formik";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { config } from "../config";
 
-
 function Register() {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   let formik = useFormik({
     initialValues: {
       username: "",
       email: "",
       password: "",
       active: false,
-      URLs:[]
+      URLs: [],
     },
     onSubmit: async (values) => {
       console.log(values);
       try {
-        const register =await axios.post( `${config.api}/register`, values);
+        const register = await axios.post(`${config.api}/register`, values);
         alert(register.data.message);
-        navigate('/')
+        navigate("/");
       } catch (error) {
         console.log(error);
       }
     },
   });
   return (
-    <div className="container">
-      <h1 className="text-dark">URL Shortener</h1>
-      <div className="col">
-        <div className="row">
-          <form onSubmit={formik.handleSubmit}>
-         
-            <div class="mb-3">
-              <label for="username" class="form-label">
-                UserName
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                name="username"
-                onChange={formik.handleChange}
-                value={formik.values.username}
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">
-                Email address
-              </label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                name="email"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-              />
-              <div id="emailHelp" class="form-text">
-                We'll never share your email with anyone else.
+   
+    <div className="container login ">
+      <span className="row d-flex align-content-center justify-content-center ">
+        <span className="col-lg-4 col-md-6 col-sm-9 pt-5 ">
+          <div className="card o-hidden border-0 shadow-lg  mt-3  bg-transparent pt-5 d-flex align-content-center">
+            <div className="card-body p-2">
+              <div className="row">
+                <div className="col-lg-9 mx-auto">
+                  <div className="p-0">
+                    <div className="  text-center pb-5">
+                      <h4 className="p-2 bg-warning border-light text-light rounded">Welcome To Register Page!</h4>
+                    </div>
+
+                    <form className="user" onSubmit={formik.handleSubmit}>
+                      <div className="form-group pb-3">
+                        <input
+                          className={"form-control "}
+                          id="username"
+                          type={"text"}
+                          value={formik.values.username}
+                          onChange={formik.handleChange}
+                          name="username"
+                          placeholder="Enter username"
+                        />
+                      </div>
+                      <div className="form-group pb-3">
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          name="email"
+                          onChange={formik.handleChange}
+                          value={formik.values.email}
+                          placeholder="Enter Your Email..."
+                        />
+                        <div id="emailHelp" class="form-text">
+                          We'll never share your email with anyone else.
+                        </div>
+                      </div>
+                      <div className="form-group pb-4">
+                        <input
+                          className={"form-control "}
+                          id="exampleInputPassword"
+                          type={"password"}
+                          value={formik.values.password}
+                          onChange={formik.handleChange}
+                          placeholder="Password"
+                          name="password"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="btn btn-outline-dark container fw-bold myname"
+                      >
+                        REGISTER
+                      </button>
+                    </form>
+
+                    <div className="text-center fw-bold mt-2 pt-2 pb-4">
+                      <p>
+                        Already have an Account ?<Link to={"/"}> Login</Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                name="password"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-              />
-            </div>
-
-            <button type="submit" class="btn btn-danger">
-             
-              Submit
-            </button>
-          </form>
-        </div>
-      </div>
+          </div>
+        </span>
+      </span>
     </div>
   );
 }

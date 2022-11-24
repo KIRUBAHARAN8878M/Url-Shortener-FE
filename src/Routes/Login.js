@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useFormik } from "formik";
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { config } from "../config";
-// import UserContext from "./usercontext";
+
 
 function Login() {
-  //   let contextData = useContext(UserContext);
+  
   let navigate = useNavigate();
   let formik = useFormik({
     initialValues: {
@@ -19,7 +19,7 @@ function Login() {
         const user = await axios.post(`${config.api}`, values);
         localStorage.setItem("react_app_token", user.data.token);
         alert(user.data.message);
-        // contextData.setUserName(values.username);
+      
         if (user.data.message === "Successfully Logged In!!") {
           if (user.data.active === true) {
             navigate("/dashboard");
@@ -37,60 +37,85 @@ function Login() {
     },
   });
   return (
-    <div className="container">
-      <h1 className="text-dark">URL Shortener</h1>
-      <div className="row">
-        <div className="col-lg-8 col-md-6 col-sm-10 ">
-          <form onSubmit={formik.handleSubmit}>
-            <div class="mb-3">
-              <label for="username" class="form-label">
-                UserName
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                name="username"
-                onChange={formik.handleChange}
-                value={formik.values.username}
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                name="password"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-              />
-              <p className="form-label">
-                <Link to="/resetpassword"> Forget Password?</Link>
-              </p>
-            </div>
+    
+    <div className="container login ">
+    <span className="row d-flex align-content-center justify-content-center ">
+      <span className="col-lg-4 col-md-6 col-sm-9 pt-5 ">
+     
+        <div className="card o-hidden border-0 shadow-lg  mt-3  bg-transparent pt-5 d-flex align-content-center">
+          <div className="card-body p-2">
+    
+          <div className="row">
+              <div className="col-lg-9 mx-auto">
+                <div className="p-0">
 
-            <button type="submit" class="btn btn-danger">
-              Submit
-            </button>
+                  
+                  <div className="  text-center pb-5">
+                    <h4 className="p-2 bg-warning border-light text-light rounded">
+                      Welcome To Login Page!
+                    </h4>
 
-            <div class="mb-3">
-              <p class="form-label">
-                Don't have account,<Link to="/register">Click here</Link> to
-                SignUP
-              </p>
-            </div>
-          </form>
-           <div>
+                  </div>
+
+
+
+                  <form className="user" onSubmit={formik.handleSubmit}>
+                    <div className="form-group pb-3">
+                      <input
+                        className={"form-control "}
+                        id="username"
+                        type={"text"}
+                        value={formik.values.username}
+                        onChange={formik.handleChange}
+                        name="username"
+                        placeholder="Enter username"
+                      />
+                   
+                    </div>
+                    <div className="form-group pb-4">
+                      <input
+                        className={"form-control "}
+                        id="exampleInputPassword"
+                        type={"password"}
+                        value={formik.values.password}
+                        onChange={formik.handleChange}
+                        placeholder="Password"
+                        name="password"
+                      />
+                     
+                    </div>
+                    <p className="form-label">
+                 <Link to="/resetpassword" className='text-light'> Forget Password?</Link>
+               </p>
+
+                    <button
+                      type="submit"
+                      className="btn btn-outline-dark container fw-bold myname"
+                
+                    >
+                      LOGIN
+                    </button>
+                  </form>
+
+                  <div className="text-center fw-bold mt-2 pt-2 pb-4">
+                    <p>
+                      Don't have an Account ? 
+                      <Link to={"/register"} className='text-light'> Register</Link>
+                    </p>
+                  </div>
+          <div className="text-center p-2 bg-dark text-light fw-bold rounded-circle">
             <h2>For Testing:</h2>
             <h3>Username: Kumar</h3>
             <h3>Password: 1234</h3>
+           </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+          </div>
+      </span>
+    </span>
+  </div>
   );
 }
 

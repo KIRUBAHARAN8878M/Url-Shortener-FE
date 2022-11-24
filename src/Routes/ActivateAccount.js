@@ -25,9 +25,12 @@ function ActivateAccount() {
   });
   return (
     <>
-      <form onSubmit={formik.handleSubmit}>
-        <div class="mb-3">
-          <label for="username" class="form-label">
+     <div className="container">
+      <div className="row">
+        <div className="col-lg-6 col-md-6 col-sm-8 mx-auto pt-5">
+        <form onSubmit={formik.handleSubmit}>
+        <div class="mb-3 pt-5">
+          <label for="username" class="form-label fw-bold fs-4">
             Enter your emailID and Click on Button to activate your account
           </label>
         </div>
@@ -50,6 +53,10 @@ function ActivateAccount() {
           Submit
         </button>
       </form>
+        </div>
+        </div>
+        </div>
+     
     </>
   );
 }

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { config } from "../config";
 import axios from "axios";
+import Sidebar from "../Components/Sidebar";
 
 function EnterURL() {
   const [data1, setData] = useState([]);
@@ -48,54 +49,18 @@ function EnterURL() {
 
   return (
     <>
-      <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">
-          URL Shortener
-        </a>
-        
-        <div class="navbar-nav">
-          <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" onClick={doLogout} href="#">
-              Sign out
-            </a>
-          </div>
-        </div>
-      </header>
+     
 
       <div class="container-fluid">
         <div class="row">
-          <nav
-            id="sidebarMenu"
-            class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
-          >
-            <div class="position-sticky pt-3 sidebar-sticky">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <Link
-                    to={"/dashboard"}
-                    class="nav-link active"
-                    aria-current="page"
-                    href="#"
-                  >
-                    <span data-feather="home" class="align-text-bottom"></span>
-                    Dashboard
-                  </Link>
-                </li>
-                <li class="nav-item">
-                  <Link to={"/enterurl"} class="nav-link" href="#">
-                    <span data-feather="file" class="align-text-bottom"></span>
-                    Create Your URL
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
+         <Sidebar />
 
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">Enter Your URL</h1>
+          <main class="col-lg-10 col-md-8 col-sm-6 mx-auto ">
+            <div class="pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="text-center text-warning p-2  border border-warning bg-light mx-auto rounded" >Enter Your Long Url To Create Your Short Url</h1>
             </div>
-            <div>
+          
+             
               <form onSubmit={formik.handleSubmit}>
                 <div class="input-group mb-3">
                   <input
@@ -109,21 +74,24 @@ function EnterURL() {
                     value={formik.values.longURL}
                   />
                   <button
-                    class="btn btn-outline-secondary"
+                    class="btn btn-dark fw-bold"
                     type="submit"
                     id="button-addon2"
                   >
-                    Submit
+                    CLICK ME
                   </button>
                 </div>
               </form>
-            </div>
-            <div className="row row-cols-1">
+          
+
+           
+           <div className="row ">
               {data1.map((item) => {
                 return (
-                  <div
-                    class="card text-bg-light mb-3 col m-5"
-                    style={{ "max-width": "18rem" }}
+                  <div className="col-lg-4 col-md-6 col-sm-8">
+<div
+                    class="card text-bg-light mb-3  m-5"
+                  
                   >
                     <div class="card-header">Click Count:{item.count}</div>
                     <div class="card-body">
@@ -135,9 +103,13 @@ function EnterURL() {
                       <p class="card-text">{item.longURL}</p>
                     </div>
                   </div>
+                  </div>
+                  
                 );
               })}
             </div>
+      
+           
           </main>
         </div>
       </div>
