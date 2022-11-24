@@ -103,7 +103,7 @@ function Login() {
                       <Link to={"/register"} className='text-light'> Register</Link>
                     </p>
                   </div>
-          <div className="text-center p-2 bg-dark text-light fw-bold rounded-circle">
+          <div className="text-center bg-dark text-light  rounded-circle">
             <h2>For Testing:</h2>
             <h3>Username: Kumar</h3>
             <h3>Password: 1234</h3>
