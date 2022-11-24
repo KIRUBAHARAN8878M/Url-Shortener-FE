@@ -40,7 +40,7 @@ function Login() {
     
     <div className="container login ">
     <span className="row d-flex align-content-center justify-content-center ">
-      <span className="col-lg-4 col-md-6 col-sm-9 pt-5 ">
+      <span className="col-lg-4 col-md-6 col-sm-9  ">
      
         <div className="card o-hidden border-0 shadow-lg  mt-3  bg-transparent pt-5 d-flex align-content-center">
           <div className="card-body p-2">
@@ -50,7 +50,7 @@ function Login() {
                 <div className="p-0">
 
                   
-                  <div className="  text-center pb-5">
+                  <div className="  text-center ">
                     <h4 className="p-2 bg-warning border-light text-light rounded">
                       Welcome To Login Page!
                     </h4>
