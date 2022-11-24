@@ -104,9 +104,9 @@ function Login() {
                     </p>
                   </div>
           <div className="text-center p-2 bg-dark text-light  rounded-circle">
-            <h2>For Testing:</h2>
-            <h3>Username: Kumar</h3>
-            <h3>Password: 1234</h3>
+            <h3>For Testing</h3>
+            <h5>Username: Kumar</h5>
+            <h5>Password: 1234</h5>
            </div>
                 </div>
               </div>
