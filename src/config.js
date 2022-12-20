@@ -1,3 +1,3 @@
 export const config = {
-    api : 'https://url-shortner-kiru-app.herokuapp.com'
+    api : 'https://kiru-url-shortener-be.vercel.app'
 }
